@@ -4,7 +4,7 @@ import InputContainer from "../../components/InputContainer";
 
 export default function Home() {
   return (
-    <View className="flex-1 bg-slate-300">
+    <View className="flex-1 bg-[#F8F9F4]">
       <Header />
       <InputContainer />
       <View className="mt-16">

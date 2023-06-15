@@ -1,11 +1,27 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { View, TextInput, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/Feather";
 
 export default function InputContainer() {
   return (
-    <View className="absolute top-40 p-5 w-screen justify-center flex-row gap-1">
-      <TextInput className="h-16 w-10/12 p-3 pb-5 bg-white rounded-lg text-base" />
-      <TouchableOpacity className="h-16 w-16 bg-black rounded-lg justify-center items-center">
-        <Text className="text-white text-5xl">+</Text>
+    <View
+      className="absolute inset-0 w-screen flex-row justify-center items-center
+        top-[21.5%] md:top-[17.5%]
+        gap-x-[1%] md:gap-x-[1%]"
+    >
+      <TextInput
+        placeholder="Add a new task"
+        className=" bg-white rounded-lg text-base
+          border border-solid border-[#E6E6E6]
+          h-[100%] md:h-[100%]
+          w-[75%] md:w-[85%] 
+          p-[5%] md:p-[2%]"
+      />
+      <TouchableOpacity
+        className="bg-black rounded-lg justify-center items-center
+          h-[100%] md:h-[100%]
+          w-[18%] md:w-[8%]"
+      >
+        <Icon name="plus-circle" size={38} color="white" />
       </TouchableOpacity>
     </View>
   );
