@@ -1,7 +1,8 @@
-import { View } from "react-native";
-import { Header } from "../../components/Header";
-import { InputContainer } from "../../components/InputContainer";
+import { View, FlatList } from "react-native";
 import { Task } from "../../components/Task";
+import { Header } from "../../components/Header";
+import { EmptyList } from "../../components/EmptyList";
+import { InputContainer } from "../../components/InputContainer";
 
 const taskList = [
   "Lavar louça",
@@ -21,11 +22,15 @@ export default function Home() {
     <View className="flex-1 bg-[#F8F9F4]">
       <Header />
       <InputContainer />
-      <View className="mt-16">
-        {taskList.map((task, index) => (
-          <Task key={index} text={task} />
-        ))}
-      </View>
+      <FlatList
+        className="mt-[20%]"
+        data={[]}
+        // data={taskList}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => <Task key={item} text={item} />}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => <EmptyList />}
+      />
     </View>
   );
 }
