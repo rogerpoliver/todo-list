@@ -1,6 +1,20 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import Header from "../../components/Header";
 import InputContainer from "../../components/InputContainer";
+import Task from "../../components/Task";
+
+const taskList = [
+  "Lavar louça",
+  "Arrumar a cama",
+  "Estudar node.js",
+  "Assistir aula da faculdade",
+  "Fazer mercado",
+  "Lavar louça",
+  "Arrumar a cama",
+  "Estudar node.js",
+  "Assistir aula da faculdade",
+  "Fazer mercado",
+];
 
 export default function Home() {
   return (
@@ -8,7 +22,9 @@ export default function Home() {
       <Header />
       <InputContainer />
       <View className="mt-16">
-        <Text>Hello World</Text>
+      {taskList.map((task, index) => (
+          <Task key={index} text={task} />
+        ))}
       </View>
     </View>
   );
