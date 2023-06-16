@@ -11,7 +11,7 @@ export function Task(props) {
 
   return (
     <View
-      className={`bg-white flex flex-row h-20 w-12/12 p-2 my-2 mx-6 rounded-xl
+      className={`bg-white flex flex-row h-20 w-12/12 p-2 my-2 mx-2 rounded-xl
        items-center justify-between ${completed && "opacity-50"}`}
     >
       <TouchableOpacity onPress={handleCheck}>
