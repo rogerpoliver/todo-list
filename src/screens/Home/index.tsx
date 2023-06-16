@@ -1,7 +1,7 @@
 import { View } from "react-native";
-import Header from "../../components/Header";
-import InputContainer from "../../components/InputContainer";
-import Task from "../../components/Task";
+import { Header } from "../../components/Header";
+import { InputContainer } from "../../components/InputContainer";
+import { Task } from "../../components/Task";
 
 const taskList = [
   "Lavar louça",
@@ -22,7 +22,7 @@ export default function Home() {
       <Header />
       <InputContainer />
       <View className="mt-16">
-      {taskList.map((task, index) => (
+        {taskList.map((task, index) => (
           <Task key={index} text={task} />
         ))}
       </View>

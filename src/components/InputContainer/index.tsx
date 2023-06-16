@@ -1,7 +1,7 @@
 import { View, TextInput, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-export default function InputContainer() {
+export function InputContainer() {
   return (
     <View
       className="absolute inset-0 w-screen flex-row justify-center items-center

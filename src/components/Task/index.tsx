@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-export default function InputContainer(props) {
+export function Task(props) {
   const [completed, setCompleted] = useState(false);
 
   const handleCheck = () => {
@@ -22,9 +22,7 @@ export default function InputContainer(props) {
         )}
       </TouchableOpacity>
       <Text
-        className={`w-10/12 text-lg text-center ${
-          completed && "line-through"
-        }`}
+        className={`w-10/12 text-lg text-center ${completed && "line-through"}`}
       >
         {props.text}
       </Text>
