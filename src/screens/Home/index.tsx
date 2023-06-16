@@ -1,6 +1,7 @@
 import { View, FlatList } from "react-native";
 import { Task } from "../../components/Task";
 import { Header } from "../../components/Header";
+import { Counter } from "../../components/Counter";
 import { EmptyList } from "../../components/EmptyList";
 import { InputContainer } from "../../components/InputContainer";
 
@@ -19,11 +20,11 @@ const taskList = [
 
 export default function Home() {
   return (
-    <View className="flex-1 bg-[#F8F9F4]">
+    <View className="flex-1 bg-[#F5F5F4] items-center">
       <Header />
       <InputContainer />
+      <Counter />
       <FlatList
-        className="mt-[20%]"
         data={[]}
         // data={taskList}
         keyExtractor={(item) => item}
