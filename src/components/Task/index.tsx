@@ -22,7 +22,7 @@ export default function InputContainer(props) {
         )}
       </TouchableOpacity>
       <Text
-        className={`w-10/12 font-mono text-lg text-center ${
+        className={`w-10/12 text-lg text-center ${
           completed && "line-through"
         }`}
       >
