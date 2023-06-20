@@ -2,11 +2,25 @@ import { useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-export function Task(props) {
+interface todoTask {
+  name: string;
+  status: boolean;
+}
+
+interface TaskProps {
+  task: todoTask;
+  onRemove: (task: todoTask) => void;
+}
+
+export function Task({ task, onRemove }: TaskProps) {
   const [completed, setCompleted] = useState(false);
 
   const handleCheck = () => {
     setCompleted(!completed);
+  };
+
+  const handleDelete = () => {
+    onRemove(task);
   };
 
   return (
@@ -24,10 +38,10 @@ export function Task(props) {
       <Text
         className={`w-10/12 text-lg text-center ${completed && "line-through"}`}
       >
-        {props.text}
+        {task.name}
       </Text>
 
-      <TouchableOpacity>
+      <TouchableOpacity onPress={handleDelete}>
         <Icon name="trash" size={25} color="#6c6969" />
       </TouchableOpacity>
     </View>

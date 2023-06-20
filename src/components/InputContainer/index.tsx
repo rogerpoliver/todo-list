@@ -1,7 +1,36 @@
+import { useState } from "react";
 import { View, TextInput, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
-export function InputContainer() {
+interface todoTask {
+  name: string;
+  status: boolean;
+}
+
+interface addTaskProp {
+  onAdd: (task: todoTask) => void;
+}
+
+export function InputContainer({ onAdd }: addTaskProp) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleAddTask = () => {
+    //TODO: If added a done task,
+    //this task should be undone.
+
+    //TODO 2: Task status are not being received
+
+    if (inputValue !== "") {
+      const newTask = {
+        name: inputValue,
+        status: false,
+      };
+
+      onAdd(newTask);
+      setInputValue("");
+    }
+  };
+
   return (
     <View
       className="absolute inset-0 w-screen flex-row justify-center items-center
@@ -10,6 +39,8 @@ export function InputContainer() {
     >
       <TextInput
         placeholder="Add a new task"
+        value={inputValue}
+        onChangeText={setInputValue}
         className=" bg-white rounded-lg text-base
           border border-solid border-[#E6E6E6]
           h-[100%] md:h-[100%]
@@ -17,6 +48,7 @@ export function InputContainer() {
           p-[5%] md:p-[2%]"
       />
       <TouchableOpacity
+        onPress={handleAddTask}
         className="bg-black rounded-lg justify-center items-center
           h-[100%] md:h-[100%]
           w-[18%] md:w-[8%]"
