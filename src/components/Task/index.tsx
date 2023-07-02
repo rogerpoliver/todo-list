@@ -10,13 +10,15 @@ interface todoTask {
 interface TaskProps {
   task: todoTask;
   onRemove: (task: todoTask) => void;
+  onUpdateTask: (taskToUpdate: todoTask, newStatus: boolean) => void;
 }
 
-export function Task({ task, onRemove }: TaskProps) {
+export function Task({ task, onRemove, onUpdateTask }: TaskProps) {
   const [completed, setCompleted] = useState(false);
 
   const handleCheck = () => {
     setCompleted(!completed);
+    onUpdateTask(task, !completed)
   };
 
   const handleDelete = () => {
