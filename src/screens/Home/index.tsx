@@ -22,11 +22,12 @@ export default function Home() {
     setDoneCounter(done.length);
   };
 
-  const addTask = (task: todoTask) => {
-    if (taskList.includes(task)) {
-      return alert("Task already exist");
+  const addTask = (newTask: todoTask) => {
+    const existingTask = taskList.find((task) => task.name === newTask.name);
+    if (existingTask) {
+      return alert("Task already exists");
     }
-    setTaskList((prevState) => [...prevState, task]);
+    setTaskList((prevState) => [...prevState, newTask]);
   };
 
   const removeTask = (taskToBeDeleted: todoTask) => {
@@ -56,10 +57,10 @@ export default function Home() {
       <Counter todo={todoCounter} done={doneCounter} />
       <FlatList
         data={taskList}
-        keyExtractor={(item) => item.name}
+        keyExtractor={(item, index) => `${item.name}-${index}`}
         renderItem={({ item }) => (
           <Task
-            key={item.name}
+            key={`${item.name}-${item.id}`}
             task={item}
             onRemove={removeTask}
             onUpdateTask={updateTask}
