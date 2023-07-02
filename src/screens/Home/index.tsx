@@ -24,9 +24,17 @@ export default function Home() {
 
   const addTask = (newTask: todoTask) => {
     const existingTask = taskList.find((task) => task.name === newTask.name);
+
     if (existingTask) {
+      if (existingTask.status !== newTask.status) {
+        updateTask(existingTask, false);
+        return alert(
+          "This task was already completed in your list. We have changed the status to 'to-do'."
+        );
+      }
       return alert("Task already exists");
     }
+
     setTaskList((prevState) => [...prevState, newTask]);
   };
 

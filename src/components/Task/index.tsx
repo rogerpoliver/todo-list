@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 
@@ -16,9 +16,13 @@ interface TaskProps {
 export function Task({ task, onRemove, onUpdateTask }: TaskProps) {
   const [completed, setCompleted] = useState(false);
 
+  useEffect(() => {
+    setCompleted(task.status);
+  }, [task.status]);
+
   const handleCheck = () => {
     setCompleted(!completed);
-    onUpdateTask(task, !completed)
+    onUpdateTask(task, !completed);
   };
 
   const handleDelete = () => {
