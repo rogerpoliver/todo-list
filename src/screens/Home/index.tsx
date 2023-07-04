@@ -80,7 +80,7 @@ export default function Home() {
         keyExtractor={(item, index) => `${item.name}-${index}`}
         renderItem={({ item }) => (
           <Task
-            key={`${item.name}-${item.id}`}
+            key={`${item.name}`}
             task={item}
             onRemove={removeTask}
             onUpdateTask={updateTask}
