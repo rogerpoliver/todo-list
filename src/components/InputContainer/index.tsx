@@ -15,11 +15,6 @@ export function InputContainer({ onAdd }: addTaskProp) {
   const [inputValue, setInputValue] = useState("");
 
   const handleAddTask = () => {
-    //TODO: If added a done task,
-    //this task should be undone.
-
-    //TODO 2: Task status are not being received
-
     if (inputValue !== "") {
       const newTask = {
         name: inputValue,
@@ -41,16 +36,17 @@ export function InputContainer({ onAdd }: addTaskProp) {
         placeholder="Add a new task"
         value={inputValue}
         onChangeText={setInputValue}
-        className=" bg-white rounded-lg text-base
+        className="bg-white rounded-lg text-base 
           border border-solid border-[#E6E6E6]
-          h-[100%] md:h-[100%]
+          h-[120%] md:h-[120%]
           w-[75%] md:w-[85%] 
-          p-[5%] md:p-[2%]"
+          p-[5%] md:p-[2%]
+          flex items-center"
       />
       <TouchableOpacity
         onPress={handleAddTask}
         className="bg-black rounded-lg justify-center items-center
-          h-[100%] md:h-[100%]
+          h-[120%] md:h-[120%]
           w-[18%] md:w-[8%]"
       >
         <Icon name="plus-circle" size={38} color="white" />
