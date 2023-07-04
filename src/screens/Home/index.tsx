@@ -52,7 +52,19 @@ export default function Home() {
       return task;
     });
     setTaskList(updatedTaskList);
+   };
+
+  const sortTasks = () => {
+    const doneTasks: todoTask[] = taskList.filter((task) => task.status);
+    const todoTasks: todoTask[] = taskList.filter((task) => !task.status);
+    setTaskList([...todoTasks, ...doneTasks]);
   };
+
+  useEffect(() => {
+    if (taskList.length >= 2) {
+      sortTasks();
+    }
+  }, [todoCounter, doneCounter]);
 
   useEffect(() => {
     handleCounters(taskList);
